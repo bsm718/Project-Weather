@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Current Weather</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <form id="search-form">
+          <div class="form-group">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your city"
+                id="city-input"
+              />
+            </div>
+          </div>
+
+          <button id="submit" type="submit">Submit</button>
+          <button id="current-location" type="submit">Current Location</button>
+        </form>
+        <h1 id="display"></h1>
+
+        <h3 class="dateTime" id="current-date"></h3>
+        <h3 class="dateTime" id="current-time"></h3>
+        <div class="row">
+          <div class="forecast" class="col-md-1">Mon</div>
+          <div class="emoji" class="col-md-1">🌧</div>
+          <div class="futureMinMax" class="col-md-1">50°/43°</div>
+        </div>
+
+        <div class="row">
+          <div class="forecast" class="col-md-1">Tues</div>
+          <div class="emoji" class="col-md-1">⛅️</div>
+          <div class="futureMinMax" class="col-md-1">53°/46°</div>
+        </div>
+        <div class="row">
+          <div class="forecast" class="col-md-1">Wed</div>
+          <div class="emoji" class="col-md-1">🌧</div>
+          <div class="futureMinMax" class="col-md-1">55°/48°</div>
+        </div>
+        <div class="row">
+          <div class="forecast" class="col-md-1">Thur</div>
+          <div class="emoji" class="col-md-1">🌧</div>
+          <div class="futureMinMax" class="col-md-1">52°/46°</div>
+        </div>
+        <div class="row">
+          <div class="forecast" id="fri" class="col-md-1">Fri</div>
+          <div class="emoji" class="col-md-1">🌧</div>
+          <div class="futureMinMax" class="col-md-1">55°/46°</div>
+        </div>
+
+        <div class="card" style="width: 22rem">
+          <div class="card-body">
+            <h2>
+              <div id="weather-emoji">🌤️</div>
+
+              <div class="float-left">
+                <span id="fahrenheit"></span>
+                <span id="units">
+                  <a href="#" id="f-link"> °F </a>
+                  <a href="#" id="c-link"> °C </a>
+                </span>
+              </div>
+            </h2>
+            <h5 id="description"></h5>
+            <ul class="current">
+              <li id="humidity"></li>
+              <li id="wind"></li>
+              <li id="min-max"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+.box {
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 50px;
+  width: 760px;
+  height: 1015px;
+}
+.forecast {
+  margin-left: 5px;
+  font-size: 20px;
+  color: rgb(22, 22, 183);
+}
+
+.emoji {
+  font-size: 25px;
+  padding-left: 25px;
+}
+.futureMinMax {
+  font-size: 15px;
+  color: rgb(22, 22, 183);
+  padding-bottom: 30px;
+  padding-left: 15px;
+}
+
+.row {
+  position: relative;
+  top: -25px;
+  left: 50px;
+}
+
+#fri {
+  padding-left: 22px;
+}
+
+#display {
+  font-size: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: black;
+}
+.card {
+  text-align: center;
+  background-color: rgb(236, 250, 253);
+  border: 5px teal;
+  box-shadow: 0 0 10px teal;
+  padding: 10px;
+  margin-left: 240px;
+  position: relative;
+  top: -540px;
+  height: 440px;
+}
+
+.form-group {
+  width: 85%;
+  padding: 20px 0px 0px 0px;
+}
+#fahrenheit {
+  color: black;
+  font-size: 100px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  right: -15px;
+  top: -30px;
+}
+#description {
+  font-size: 24px;
+  text-transform: capitalize;
+  text-align: center;
+  position: relative;
+  top: -50px;
+  color: rgb(22, 22, 183);
+}
+.current {
+  list-style: none;
+  text-align: center;
+  display: inline;
+  position: relative;
+  top: -50px;
+  font-size: 20px;
+  color: rgb(22, 22, 183);
+}
+#current-date {
+  text-align: center;
+}
+
+#current-time {
+  text-align: center;
+}
+
+#submit {
+  position: relative;
+  top: -57px;
+  margin-left: 580px;
+  background: rgb(13, 197, 197);
+  border-radius: 20px;
+  padding: 8px 10px;
+}
+
+#submit:hover {
+  background: rgb(22, 22, 183);
+  color: white;
+}
+
+#current-location {
+  margin-left: 510px;
+  position: relative;
+  top: -40px;
+  color: white;
+  background: rgb(22, 22, 183);
+  border-radius: 20px;
+  padding: 8px 10px;
+}
+
+#current-location:hover {
+  background: rgb(13, 197, 197);
+  color: black;
+}
+
+#weather-emoji {
+  font-size: 80px;
+  padding-bottom: 30px;
+  padding-top: 0px;
+}
+
+#f-link {
+  text-decoration: none;
+  position: relative;
+  left: 10px;
+  top: -80px;
+  font-size: 26px;
+}
+
+#f-link:hover {
+  color: rgb(22, 22, 183);
+}
+#c-link {
+  text-decoration: none;
+  font-size: 26px;
+  padding-left: 270px;
+  position: relative;
+  top: -260px;
+}
+
+#c-link:hover {
+  color: rgb(22, 22, 183);
+}

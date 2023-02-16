@@ -43,7 +43,7 @@
         <h3 class="dateTime" id="current-time"></h3>
 
         <div class="row">
-          <div class="col-2">
+          <div class="col-3">
             <ul>
               <li class="forecast">Mon</li>
               <li class="emoji">🌧</li>
@@ -59,34 +59,35 @@
 
               <li class="forecast">Thur</li>
               <li class="emoji">🌧</li>
-              <li class="futureMinMax" class="col-3">52°/46°</li>
+              <li class="futureMinMax">52°/46°</li>
 
               <li class="forecast" id="fri">Fri</li>
               <li class="emoji">🌧</li>
               <li class="futureMinMax">55°/46°</li>
             </ul>
           </div>
-        </div>
+          <div class="col-7">
+            <div class="card">
+              <div class="card-body">
+                <h2>
+                  <div id="weather-emoji">🌤️</div>
 
-        <div class="card" style="width: 22rem">
-          <div class="card-body">
-            <h2>
-              <div id="weather-emoji">🌤️</div>
-
-              <div class="float-left">
-                <span id="fahrenheit"></span>
-                <span id="units">
-                  <a href="#" id="f-link"> °F </a>
-                  <a href="#" id="c-link"> °C </a>
-                </span>
+                  <div class="float-left">
+                    <span id="fahrenheit"></span>
+                    <span id="units">
+                      <a href="#" id="f-link"> °F </a>
+                      <a href="#" id="c-link"> °C </a>
+                    </span>
+                  </div>
+                </h2>
+                <h5 id="description"></h5>
+                <ul class="current">
+                  <li id="humidity"></li>
+                  <li id="wind"></li>
+                  <li id="min-max"></li>
+                </ul>
               </div>
-            </h2>
-            <h5 id="description"></h5>
-            <ul class="current">
-              <li id="humidity"></li>
-              <li id="wind"></li>
-              <li id="min-max"></li>
-            </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -94,9 +95,10 @@
         href="https://github.com/bsm718/Project-Weather/tree/main"
         target="_blank"
         id="open-source-code"
-        >Open-source code</a
+      >
+        Open-source code </a
       >, by Stephanie Merport
+      <script src="index.js"></script>
     </div>
-    <script src="index.js"></script>
   </body>
 </html>

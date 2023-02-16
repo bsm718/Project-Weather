@@ -38,11 +38,6 @@ ul {
   background-color: rgb(236, 250, 253);
   border: 5px teal;
   box-shadow: 0 0 10px teal;
-  padding: 10px;
-  margin-left: 240px;
-  position: relative;
-  top: -540px;
-  height: 440px;
 }
 
 .form-group {

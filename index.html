@@ -36,7 +36,7 @@
           <button id="current-location" type="button">
             Search Current Location
           </button>
-          <button id="submit" type="submit">Search</button>
+          <button id="submit" type="submit">City Search</button>
         </form>
 
         <h1 id="display"></h1>
@@ -71,28 +71,36 @@
           <div class="col-8">
             <div class="card">
               <div class="card-body">
-                <h2>
-                  <div id="weather-emoji">🌤️</div>
-
+                <div class="weatherTemperature">
                   <div class="float-left">
-                    <span id="fahrenheit"></span>
                     <span id="units">
-                      <a href="#" id="f-link"> °F </a>
-                      <a href="#" id="c-link"> °C </a>
+                      <a href="#" id="f-link" class="active">°F</a>
+                      <span id="divide"> | </span>
+                      <a href="#" id="c-link">°C</a>
                     </span>
                   </div>
-                </h2>
+                </div>
+                <div>
+                  <img src="" alt="current weather icon" id="weather-emoji" />
+                </div>
+                <span id="fahrenheit"></span>
+                <div id="f-c">°F</div>
+
                 <h5 id="description"></h5>
                 <ul class="current">
-                  <li id="humidity"></li>
-                  <li id="wind"></li>
-                  <li id="min-max"></li>
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Wind: <span id="wind"></span><span id="w"> mph</span></li>
+                  <li>
+                    <span id="min"></span><span>°/</span> <span id="max"></span
+                    ><span>°</span>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <a
         href="https://github.com/bsm718/Project-Weather/tree/main"
         target="_blank"

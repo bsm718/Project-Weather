@@ -7,23 +7,23 @@
   margin-bottom: 15px;
 }
 
-ul {
-  list-style: none;
+.forecast {
+  color: rgb(22, 22, 183);
   text-align: center;
 }
 
-.forecast {
-  color: rgb(22, 22, 183);
-}
-
-.emoji {
+.futureIcon {
   font-size: 25px;
+  display: flex;
+  justify-content: center;
 }
 
-.futureMinMax {
+.futureForecast {
   font-size: 12px;
   color: rgb(22, 22, 183);
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 #display {
@@ -52,7 +52,6 @@ ul {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   top: -30px;
-  padding-left: 25px;
 }
 #description {
   font-size: 24px;
@@ -121,12 +120,14 @@ ul {
 
 #divide {
   text-decoration: none;
+
+  font-size: 25px;
 }
 
 #f-c {
   position: relative;
-  top: -80px;
-  font-size: 25px;
+  top: -140px;
+  right: -60px;
 }
 
 #open-source-code {
@@ -146,6 +147,6 @@ ul {
   text-decoration: none;
 }
 
-#weather-emoji {
+#weather-icon {
   width: 120px;
 }

@@ -49,27 +49,44 @@ function showTemperature(response) {
   let display = document.querySelector("#display");
   display.innerHTML = cityName;
 
+  let icon = response.data.weather[0].icon;
+  let weatherIcon = document.querySelector("#weather-emoji");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
+
   let temperature = Math.round(response.data.main.temp);
   let fDegrees = document.querySelector("#fahrenheit");
+  fDegrees.innerHTML = temperature;
 
   let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
 
   let humPercent = response.data.main.humidity;
   let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = humPercent;
 
   let windSpeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#wind");
+  wind.innerHTML = windSpeed;
 
   let tempMin = Math.round(response.data.main.temp_min);
-  let tempMax = Math.round(response.data.main.temp_max);
-  let minMax = document.querySelector("#min-max");
+  let min = document.querySelector("#min");
+  min.innerHTML = tempMin;
 
-  fDegrees.innerHTML = temperature;
-  description.innerHTML = response.data.weather[0].description;
-  humidity.innerHTML = `Humidity: ${humPercent}%`;
-  wind.innerHTML = `Wind: ${windSpeed} mph`;
-  minMax.innerHTML = `${tempMin}°/${tempMax}°`;
+  let tempMax = Math.round(response.data.main.temp_max);
+  let max = document.querySelector("#max");
+  max.innerHTML = tempMax;
+
+  fahrenheitTemp = response.data.main.temp;
+  windy = response.data.wind.speed;
+  minTemp = response.data.main.temp_min;
+  maxTemp = response.data.main.temp_max;
 }
+
+//
 function searchCity(cityInput) {
   let apiKey = "65af86af583e025f3332a52aa4176f36";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=imperial`;
@@ -81,10 +98,7 @@ function submitButton(event) {
   let cityInput = document.querySelector("#city-input").value;
   searchCity(cityInput);
 }
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", submitButton);
 
-searchCity("Los Angeles");
 //
 
 function searchLocation(position) {
@@ -110,22 +124,70 @@ currentLocation.addEventListener("click", getCurrentPosition);
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#fahrenheit");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+  flink.classList.remove("active");
+  clink.classList.add("active");
+  let celsiusTemp = temperatureElement.innerHTML;
+  celsiusTemp = Number(celsiusTemp);
+  temperatureElement.innerHTML = Math.round(((fahrenheitTemp - 32) * 5) / 9);
+
+  let windElement = document.querySelector("#wind");
+  let windSpeed = windElement.innerHTML;
+  windSpeed = Number(windSpeed);
+  windElement.innerHTML = Math.round(windy * 1.60934);
+
+  let w = document.querySelector("#w");
+  w.innerHTML = " km/h";
+
+  let fc = document.querySelector("#f-c");
+  fc.innerHTML = "°C";
+
+  let minElement = document.querySelector("#min");
+  let min = minElement.innerHTML;
+  min = Number(min);
+  minElement.innerHTML = Math.round(((minTemp - 32) * 5) / 9);
+
+  let maxElement = document.querySelector("#max");
+  let max = maxElement.innerHTML;
+  max = Number(max);
+  maxElement.innerHTML = Math.round(((maxTemp - 32) * 5) / 9);
 }
 
 function convertToFahrenheit(event) {
   event.preventDefault();
+  flink.classList.add("active");
+  clink.classList.remove("active");
+
   let temperatureElement = document.querySelector("#fahrenheit");
-  let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(windy);
+
+  let w = document.querySelector("#w");
+  w.innerHTML = " mph";
+
+  let fc = document.querySelector("#f-c");
+  fc.innerHTML = "°F";
+
+  let minElement = document.querySelector("#min");
+  minElement.innerHTML = Math.round(minTemp);
+
+  let maxElement = document.querySelector("#max");
+  maxElement.innerHTML = Math.round(maxTemp);
 }
+let fahrenheitTemp = null;
+let windy = null;
+let minTemp = null;
+let maxTemp = null;
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitButton);
 
 let clink = document.querySelector("#c-link");
 clink.addEventListener("click", convertToCelsius);
 
 let flink = document.querySelector("#f-link");
 flink.addEventListener("click", convertToFahrenheit);
+
+searchCity("Los Angeles");
 //

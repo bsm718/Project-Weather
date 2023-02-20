@@ -3,15 +3,13 @@
   border-radius: 5px;
   padding: 50px;
   max-width: 600px;
-  height: 1015px;
+  height: 1000px;
   margin-bottom: 15px;
 }
 
 ul {
   list-style: none;
   text-align: center;
-  position: relative;
-  top: -20px;
 }
 
 .forecast {
@@ -45,15 +43,14 @@ ul {
 }
 
 .form-group {
-  width: 80%;
-  padding: 20px 0px 0px 0px;
+  width: 365px;
+  padding: 5px 0px 0px 0px;
 }
 #fahrenheit {
   color: black;
   font-size: 100px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
-  right: -15px;
   top: -30px;
 }
 #description {
@@ -86,7 +83,7 @@ ul {
   background: rgb(13, 197, 197);
   border-radius: 20px;
   padding: 8px 12px;
-  margin-left: 420px;
+  margin-left: 380px;
   position: relative;
   top: -100px;
 
@@ -112,37 +109,44 @@ ul {
   color: black;
 }
 
-#weather-emoji {
-  font-size: 80px;
-  padding-bottom: 30px;
-  padding-top: 0px;
-}
-
 #f-link {
   text-decoration: none;
-  position: relative;
-  left: 10px;
-  top: -81px;
-  font-size: 25px;
-}
-
-#f-link:hover {
-  color: rgb(22, 22, 183);
+  padding-left: 200px;
 }
 
 #c-link {
   text-decoration: none;
-  font-size: 26px;
-  padding-left: 200px;
-  position: relative;
-  top: -260px;
 }
 
-#c-link:hover {
-  color: rgb(22, 22, 183);
+#divide {
+  text-decoration: none;
+
+  font-size: 25px;
+}
+
+#f-c {
+  position: relative;
+  top: -140px;
+  right: -60px;
 }
 
 #open-source-code {
   text-decoration: none;
   color: rgb(22, 22, 183);
+}
+
+.weatherTemperature .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.weatherTemperature .active:hover {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+#weather-emoji {
+  width: 120px;
 }

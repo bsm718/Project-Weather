@@ -52,6 +52,7 @@ ul {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
   top: -30px;
+  padding-left: 25px;
 }
 #description {
   font-size: 24px;
@@ -120,14 +121,12 @@ ul {
 
 #divide {
   text-decoration: none;
-
-  font-size: 25px;
 }
 
 #f-c {
   position: relative;
-  top: -140px;
-  right: -60px;
+  top: -80px;
+  font-size: 25px;
 }
 
 #open-source-code {

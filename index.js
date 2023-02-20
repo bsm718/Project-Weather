@@ -50,7 +50,7 @@ function showTemperature(response) {
   display.innerHTML = cityName;
 
   let icon = response.data.weather[0].icon;
-  let weatherIcon = document.querySelector("#weather-emoji");
+  let weatherIcon = document.querySelector("#weather-icon");
   weatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`

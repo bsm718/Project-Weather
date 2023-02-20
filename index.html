@@ -46,27 +46,21 @@
 
         <div class="row">
           <div class="col-3">
-            <ul>
-              <li class="forecast">Mon</li>
-              <li class="emoji">🌧</li>
-              <li class="futureMinMax">50°/43°</li>
+            <div class="forecast">Mon</div>
+            <div class="emoji">
+              <img
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt=""
+                width="36px"
+              />
+            </div>
 
-              <li class="forecast">Tues</li>
-              <li class="emoji">⛅️</li>
-              <li class="futureMinMax">53°/46°</li>
+            <div class="futureForecast">
+              <span class="futureMin">50°</span>
 
-              <li class="forecast">Wed</li>
-              <li class="emoji">🌧</li>
-              <li class="futureMinMax">55°/48°</li>
-
-              <li class="forecast">Thur</li>
-              <li class="emoji">🌧</li>
-              <li class="futureMinMax">52°/46°</li>
-
-              <li class="forecast" id="fri">Fri</li>
-              <li class="emoji">🌧</li>
-              <li class="futureMinMax">55°/46°</li>
-            </ul>
+              <span>/</span>
+              <span class="futureMax">43°</span>
+            </div>
           </div>
           <div class="col-8">
             <div class="card">
@@ -87,9 +81,8 @@
                     id="weather-emoji"
                   />
                 </div>
-
                 <span id="fahrenheit"></span>
-                <span id="f-c">°F</span>
+                <div id="f-c">°F</div>
 
                 <h5 id="description"></h5>
                 <ul class="current">

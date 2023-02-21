@@ -2,12 +2,12 @@
   border: 2px solid grey;
   border-radius: 5px;
   padding: 50px;
-  max-width: 600px;
-  height: 1000px;
-  margin-bottom: 15px;
+  max-width: 700px;
+  max-height: 1200px;
+  margin: 0 auto;
 }
 
-.forecast {
+.futureForecast {
   color: rgb(22, 22, 183);
   text-align: center;
 }
@@ -18,7 +18,7 @@
   justify-content: center;
 }
 
-.futureForecast {
+.futureMinMax {
   font-size: 12px;
   color: rgb(22, 22, 183);
   margin-bottom: 30px;
@@ -39,11 +39,11 @@
   background-color: rgb(236, 250, 253);
   border: 5px teal;
   box-shadow: 0 0 10px teal;
-  width: 300px;
+  max-width: 380px;
 }
 
 .form-group {
-  width: 365px;
+  max-width: 70%;
   padding: 5px 0px 0px 0px;
 }
 #fahrenheit {
@@ -83,11 +83,11 @@
   background: rgb(13, 197, 197);
   border-radius: 20px;
   padding: 8px 12px;
-  margin-left: 380px;
-  position: relative;
-  top: -100px;
-
   text-align: center;
+
+  position: relative;
+  left: 80%;
+  top: -99px;
 }
 
 #submit:hover {
@@ -111,7 +111,7 @@
 
 #f-link {
   text-decoration: none;
-  padding-left: 200px;
+  text-align: center;
 }
 
 #c-link {
@@ -120,7 +120,6 @@
 
 #divide {
   text-decoration: none;
-
   font-size: 25px;
 }
 
@@ -133,6 +132,11 @@
 #open-source-code {
   text-decoration: none;
   color: rgb(22, 22, 183);
+}
+
+.openSource {
+  padding-top: 10px;
+  text-align: center;
 }
 
 .weatherTemperature .active {

@@ -115,21 +115,7 @@
   color: black;
 }
 
-#f-link {
-  text-decoration: none;
-  text-align: center;
-}
-
-#c-link {
-  text-decoration: none;
-}
-
-#divide {
-  text-decoration: none;
-  font-size: 25px;
-}
-
-#f-c {
+#f {
   position: relative;
   top: 15px;
   right: -60px;
@@ -143,18 +129,6 @@
 .openSource {
   padding-top: 10px;
   text-align: center;
-}
-
-.weatherTemperature .active {
-  color: black;
-  cursor: default;
-  text-decoration: none;
-}
-
-.weatherTemperature .active:hover {
-  color: black;
-  cursor: default;
-  text-decoration: none;
 }
 
 #weather-icon {

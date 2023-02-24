@@ -85,9 +85,6 @@ function showTemperature(response) {
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = feelsLikeTemp;
 
-  fahrenheitTemp = response.data.temperature.current;
-  windy = response.data.wind.speed;
-
   getForecast(response.data.coordinates);
 }
 
@@ -124,54 +121,7 @@ function getCurrentPosition(event) {
 
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getCurrentPosition);
-//
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#fahrenheit");
-  flink.classList.remove("active");
-  clink.classList.add("active");
-  let celsiusTemp = temperatureElement.innerHTML;
-  celsiusTemp = Number(celsiusTemp);
-  temperatureElement.innerHTML = Math.round(((fahrenheitTemp - 32) * 5) / 9);
-
-  let windElement = document.querySelector("#wind");
-  let windSpeed = windElement.innerHTML;
-  windSpeed = Number(windSpeed);
-  windElement.innerHTML = Math.round(windy * 1.60934);
-
-  let feelsLikeElement = document.querySelector("#feels-like");
-  let feelsLike = feelsLikeElement.innerHTML;
-  feelsLike = Number(feelsLike);
-  feelsLikeElement.innerHTML = Math.round(((fahrenheitTemp - 32) * 5) / 9);
-
-  let w = document.querySelector("#w");
-  w.innerHTML = " km/h";
-
-  let fc = document.querySelector("#f-c");
-  fc.innerHTML = " °C";
-}
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  flink.classList.add("active");
-  clink.classList.remove("active");
-
-  let temperatureElement = document.querySelector("#fahrenheit");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-
-  let windElement = document.querySelector("#wind");
-  windElement.innerHTML = Math.round(windy);
-
-  let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = Math.round(fahrenheitTemp);
-
-  let w = document.querySelector("#w");
-  w.innerHTML = " mph";
-
-  let fc = document.querySelector("#f-c");
-  fc.innerHTML = " °F";
-}
 //
 
 function formatDay(timeStamp) {
@@ -219,16 +169,8 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 //
-let fahrenheitTemp = null;
-let windy = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitButton);
-
-let clink = document.querySelector("#c-link");
-clink.addEventListener("click", convertToCelsius);
-
-let flink = document.querySelector("#f-link");
-flink.addEventListener("click", convertToFahrenheit);
 
 searchCity("Los Angeles");

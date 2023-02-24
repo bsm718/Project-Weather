@@ -51,15 +51,21 @@
   font-size: 100px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
-  top: -30px;
+  top: -50px;
 }
 #description {
   font-size: 24px;
   text-transform: capitalize;
   text-align: center;
   position: relative;
-  top: -50px;
+  top: -40px;
+
   color: rgb(22, 22, 183);
+}
+
+.feels-like {
+  position: relative;
+  top: -75px;
 }
 .current {
   list-style: none;
@@ -125,7 +131,7 @@
 
 #f-c {
   position: relative;
-  top: -140px;
+  top: 15px;
   right: -60px;
 }
 

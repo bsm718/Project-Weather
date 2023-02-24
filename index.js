@@ -47,10 +47,7 @@ todayTime.innerHTML = currentTime(now);
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "9f08e2dtc6459be5bd4d439a047ao3cb";
-  let lat = coordinates.latitude;
-  let lon = coordinates.longitude;
-
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 //
@@ -83,6 +80,10 @@ function showTemperature(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#wind");
   wind.innerHTML = windSpeed;
+
+  let feelsLikeTemp = Math.round(response.data.temperature.feels_like);
+  let feelsLike = document.querySelector("#feels-like");
+  feelsLike.innerHTML = feelsLikeTemp;
 
   fahrenheitTemp = response.data.temperature.current;
   windy = response.data.wind.speed;
@@ -139,6 +140,11 @@ function convertToCelsius(event) {
   windSpeed = Number(windSpeed);
   windElement.innerHTML = Math.round(windy * 1.60934);
 
+  let feelsLikeElement = document.querySelector("#feels-like");
+  let feelsLike = feelsLikeElement.innerHTML;
+  feelsLike = Number(feelsLike);
+  feelsLikeElement.innerHTML = Math.round(((fahrenheitTemp - 32) * 5) / 9);
+
   let w = document.querySelector("#w");
   w.innerHTML = " km/h";
 
@@ -157,6 +163,9 @@ function convertToFahrenheit(event) {
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(windy);
 
+  let feelsLikeElement = document.querySelector("#feels-like");
+  feelsLikeElement.innerHTML = Math.round(fahrenheitTemp);
+
   let w = document.querySelector("#w");
   w.innerHTML = " mph";
 
@@ -164,32 +173,47 @@ function convertToFahrenheit(event) {
   fc.innerHTML = " °F";
 }
 //
-function displayForecast() {
+
+function formatDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  let forecastHTML = "";
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = "";
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="futureForecast">${day}</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="futureForecast">${formatDay(forecastDay.time)}</div>
                     <div class="futureIcon">
                       <img
-                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                          forecastDay.condition.icon
+                        }.png"
                         alt="current weather icon"
                         width="36px"
                       />
                     </div>
 
                     <div class="futureMinMax">
-                      <span class="futureMin">50°</span>
-
-                      <span>/</span>
-                      <span class="futureMax">43°</span>
+                      <span id="futureMin">${Math.round(
+                        forecastDay.temperature.minimum
+                      )}°/ </span>
+                      <span id="futureMax">${Math.round(
+                        forecastDay.temperature.maximum
+                      )}°</span>
                     </div>
                     </div>
                     </div>
         `;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
@@ -208,4 +232,3 @@ let flink = document.querySelector("#f-link");
 flink.addEventListener("click", convertToFahrenheit);
 
 searchCity("Los Angeles");
-displayForecast();

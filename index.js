@@ -25,37 +25,46 @@ function currentDate(now) {
 
   return `${day}, ${month} ${date}, ${year}`;
 }
-function currentTime(now) {
-  let hour = now.getHours() % 12 || 12;
-  let mins = now.getMinutes();
+
+function currentTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let ampm = "AM";
+  if (hours >= 12) {
+    hours = hours - 12;
+    ampm = "PM";
+  }
+  if (hours === 0 || hours === 12) {
+    hours = "12";
+  }
+
+  let mins = date.getMinutes();
   if (mins < 10) {
     mins = `0${mins}`;
   }
-  let ampm = hour >= 12 ? "am" : "pm";
 
-  return `${hour}:${mins}${ampm}`;
+  return `Last Updated: ${hours}:${mins} ${ampm}`;
 }
 
 let now = new Date();
-let todayDate = document.querySelector("#current-date");
-todayDate.innerHTML = currentDate(now);
 
 let todayTime = document.querySelector("#current-time");
 todayTime.innerHTML = currentTime(now);
-//
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "9f08e2dtc6459be5bd4d439a047ao3cb";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
-//
+
 function showTemperature(response) {
-  console.log(response.data);
   let cityName = response.data.city;
   let display = document.querySelector("#display");
   display.innerHTML = cityName;
+
+  let country = response.data.country;
+  let countryDisplay = document.querySelector("#country");
+  countryDisplay.innerHTML = country;
 
   let icon = response.data.condition.icon;
   let weatherIcon = document.querySelector("#weather-icon");
@@ -85,23 +94,26 @@ function showTemperature(response) {
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = feelsLikeTemp;
 
+  let todayDate = document.querySelector("#current-date");
+  todayDate.innerHTML = currentDate(now);
+
+  let timeElement = document.querySelector("#current-time");
+  timeElement.innerHTML = currentTime(response.data.time * 1000);
+
   getForecast(response.data.coordinates);
 }
 
-//
 function searchCity(cityInput) {
   let apiKey = "9f08e2dtc6459be5bd4d439a047ao3cb";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemperature);
 }
-//
+
 function submitButton(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input").value;
   searchCity(cityInput);
 }
-
-//
 
 function searchLocation(position) {
   let lat = position.coords.latitude;
@@ -122,8 +134,6 @@ function getCurrentPosition(event) {
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getCurrentPosition);
 
-//
-
 function formatDay(timeStamp) {
   let date = new Date(timeStamp * 1000);
   let day = date.getDay();
@@ -131,8 +141,8 @@ function formatDay(timeStamp) {
 
   return days[day];
 }
+
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastHTML = "";
   let forecastElement = document.querySelector("#forecast");
@@ -161,14 +171,12 @@ function displayForecast(response) {
                       )}°</span>
                     </div>
                     </div>
-                    </div>
         `;
     }
   });
 
   forecastElement.innerHTML = forecastHTML;
 }
-//
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitButton);

@@ -3,7 +3,7 @@
   border-radius: 5px;
   padding: 50px;
   max-width: 700px;
-  max-height: 1200px;
+  max-height: 1100px;
   margin: 0 auto;
 }
 
@@ -21,52 +21,31 @@
 .futureMinMax {
   font-size: 12px;
   color: rgb(22, 22, 183);
-  margin-bottom: 30px;
   display: flex;
   justify-content: center;
+  padding-bottom: 25px;
 }
 
-#display {
-  font-size: 80px;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  color: black;
-  margin-top: 0;
-}
 .card {
   text-align: center;
   background-color: rgb(236, 250, 253);
   border: 5px teal;
   box-shadow: 0 0 10px teal;
   max-width: 380px;
+  padding: 5px;
+  margin-top: 0;
 }
 
 .form-group {
-  max-width: 70%;
   padding: 5px 0px 0px 0px;
-}
-#fahrenheit {
-  color: black;
-  font-size: 100px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
-  top: -50px;
-}
-#description {
-  font-size: 24px;
-  text-transform: capitalize;
-  text-align: center;
-  position: relative;
-  top: -40px;
-
-  color: rgb(22, 22, 183);
 }
 
 .feels-like {
   position: relative;
   top: -75px;
+  color: rgb(79, 77, 77);
 }
+
 .current {
   list-style: none;
   text-align: center;
@@ -76,49 +55,97 @@
   font-size: 20px;
   color: rgb(22, 22, 183);
 }
-#current-date {
+
+.openSource {
+  padding-top: 10px;
   text-align: center;
+}
+
+#display {
+  font-size: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#country {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+#current-date {
+  text-align: right;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 #current-time {
-  text-align: center;
+  text-align: right;
+  margin-top: 0;
   margin-bottom: 50px;
 }
 
-#submit {
-  background: rgb(13, 197, 197);
+#fahrenheit {
+  color: black;
+  font-size: 100px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  top: -50px;
+}
+
+#description {
+  font-size: 24px;
+  text-transform: capitalize;
+  text-align: center;
+  position: relative;
+  top: -40px;
+  color: rgb(22, 22, 183);
+}
+
+.btn-primary {
   border-radius: 20px;
   padding: 8px 12px;
   text-align: center;
-
-  position: relative;
-  left: 80%;
-  top: -99px;
+  font-weight: 400;
+  background: rgb(12, 183, 183);
+  border: 2px solid grey;
+  color: black;
 }
 
-#submit:hover {
+.btn-primary:hover {
   background: rgb(22, 22, 183);
   color: white;
 }
 
+.currentLocation {
+  margin: 0 auto;
+  display: grid;
+  max-width: 220px;
+}
 #current-location {
   color: white;
   background: rgb(22, 22, 183);
   border-radius: 20px;
   padding: 8px 12px;
-  margin: 0 auto;
-  display: grid;
+  margin-bottom: 50px;
+  border: 2px solid grey;
+  font-weight: 400;
 }
 
 #current-location:hover {
-  background: rgb(13, 197, 197);
+  background: rgb(12, 183, 183);
   color: black;
 }
 
 #f {
   position: relative;
   top: 15px;
-  right: -60px;
+  right: -63px;
 }
 
 #open-source-code {
@@ -126,9 +153,8 @@
   color: rgb(22, 22, 183);
 }
 
-.openSource {
-  padding-top: 10px;
-  text-align: center;
+#open-source-code:hover {
+  text-decoration: underline;
 }
 
 #weather-icon {

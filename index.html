@@ -22,27 +22,39 @@
   <body>
     <div class="container">
       <div class="box">
+        <h5 class="dateTime" id="current-date"></h5>
+        <h6 class="dateTime" id="current-time"></h6>
         <form id="search-form">
-          <div class="form-group">
-            <div class="mb-3">
+          <div class="row">
+            <div class="col-9">
+              <div class="form-group">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your city"
+                    id="city-input"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-3" id="submit">
               <input
-                type="text"
-                class="form-control"
-                placeholder="Enter your city"
-                id="city-input"
+                type="submit"
+                value="Search"
+                class="btn btn-primary w-100"
               />
             </div>
           </div>
-          <button id="current-location" type="button">
-            Search Current Location
-          </button>
-          <button id="submit" type="submit">City Search</button>
+          <div class="currentLocation">
+            <button id="current-location" type="button">
+              Search Current Location
+            </button>
+          </div>
         </form>
 
         <h1 id="display"></h1>
-
-        <h3 class="dateTime" id="current-date"></h3>
-        <h3 class="dateTime" id="current-time"></h3>
+        <h2 id="country"></h2>
 
         <div class="row">
           <div class="col-3">
@@ -53,7 +65,7 @@
               <div class="card-body">
                 <div>
                   <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
                     alt="current weather icon"
                     id="weather-icon"
                   />

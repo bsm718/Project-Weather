@@ -19,7 +19,6 @@ function currentDate(now) {
   ];
 
   let month = months[now.getMonth()];
-
   let date = now.getDate();
   let year = now.getFullYear();
 
